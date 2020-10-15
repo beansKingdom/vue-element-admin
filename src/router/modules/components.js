@@ -13,6 +13,12 @@ const componentsRouter = {
   },
   children: [
     {
+      path: 'common_tools',
+      component: () => import('@/views/components-demo/common_tools'),
+      name: 'CommonTools',
+      meta: { title: '通用工具' }
+    },
+    {
       path: 'tinymce',
       component: () => import('@/views/components-demo/tinymce'),
       name: 'TinymceDemo',
