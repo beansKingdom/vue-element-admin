@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Vue Element Admin',
+  title: 'Tepot Platform',
 
   /**
    * @type {boolean} true | false

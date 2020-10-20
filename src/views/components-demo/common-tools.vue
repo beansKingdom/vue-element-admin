@@ -11,7 +11,7 @@
           <el-input
             v-model="input_quote_data"
             type="textarea"
-            :autosize="{ minRows: 6 }"
+            :autosize="{ minRows: 6, maxRows: 6 }"
             placeholder="Example: http://www.baidu.com/search?scope=bbs&q=C%E8%AF%AD%E8%A8%80"
           />
         </div>
@@ -26,7 +26,7 @@
           <el-input
             v-model="convert_data"
             type="textarea"
-            :autosize="{ minRows: 6 }"
+            :autosize="{ minRows: 6, maxRows: 6 }"
             placeholder="http://www.baidu.com/search?scope=bbs&q=C语言"
             :disabled="true"
           />
@@ -67,9 +67,7 @@
 </style>
 
 <script>
-// import CommonMethod from "@/common/common.js";
-// import { Message, Axios } from "element-ui";
-// import { env } from "@/axios.js";
+import { convertData } from '@/api/common-tools'
 
 export default {
   data() {
@@ -81,13 +79,13 @@ export default {
   },
   methods: {
     async convertData() {
-      // console.log(this.input_quote_data)
-      // var args = {
-      //     quote_data: this.input_quote_data,
-      // };
-      // var response = await CommonMethod.request_get("api/parse_quote_data", args);
-      // this.convert_data = response.data.data
-      // console.log(response.data.data)
+      var params = {
+        quote_data: this.input_quote_data
+      }
+      console.log('test input params ' + this.input_quote_data)
+      var res = await convertData(params)
+      console.log('test res is ' + res)
+      this.convert_data = res.data
     }
   }
 }
