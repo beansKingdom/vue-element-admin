@@ -67,7 +67,7 @@
 </style>
 
 <script>
-import { convertData } from '@/api/common-tools'
+import CommonMethods from '@/utils/common-methods'
 
 export default {
   data() {
@@ -82,9 +82,7 @@ export default {
       var params = {
         quote_data: this.input_quote_data
       }
-      console.log('test input params ' + this.input_quote_data)
-      var res = await convertData(params)
-      console.log('test res is ' + res)
+      var res = await CommonMethods.request_get('/parse_quote_data', params)
       this.convert_data = res.data
     }
   }

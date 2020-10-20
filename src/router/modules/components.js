@@ -19,10 +19,16 @@ const componentsRouter = {
       meta: { title: '通用工具', icon: 'el-icon-s-tools' }
     },
     {
+      path: 'tp-bug-detail',
+      component: () => import('@/views/components-demo/tp-bug-detail'),
+      name: 'JiraIssues',
+      meta: { title: '同频问题数', icon: 'edit' }
+    },
+    {
       path: 'json-editor',
       component: () => import('@/views/components-demo/json-editor'),
       name: 'JsonEditorDemo',
-      meta: { title: 'JSON Editor', icon: 'edit' }
+      meta: { title: 'JSON Editor', icon: 'bug' }
     }
     // {
     //   path: 'tinymce',
