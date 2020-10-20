@@ -14,6 +14,7 @@ const name = defaultSettings.title || 'vue Element Admin' // page title
 // You can change the port by the following method:
 // port = 9527 npm run dev OR npm run dev --port = 9527
 const port = process.env.port || process.env.npm_config_port || 9527 // dev port
+const API_ORIGIN = process.env.VUE_APP_API_ORIGIN || 'http://localhost:8010'
 
 // All configuration item explanations can be find in https://cli.vuejs.org/config/
 module.exports = {
@@ -32,6 +33,14 @@ module.exports = {
   devServer: {
     port: port,
     open: true,
+    proxy: {
+      '/api': {
+        target: API_ORIGIN,
+        changeOrigin: true, // 将基于名称的虚拟托管网站的选项，如果不配置，请求会报404
+        secure: false,
+        ws: true,
+      }
+    },
     overlay: {
       warnings: false,
       errors: true
